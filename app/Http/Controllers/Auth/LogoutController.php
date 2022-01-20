@@ -11,6 +11,12 @@ class LogoutController extends Controller
 {
     public function __invoke(): RedirectResponse
     {
+        // Deleta todas variaveis de sessão
+        session()->flush();
+
+        // Libera todas as variáveis de sessão
+        session_unset();
+     
         Auth::logout();
 
         return redirect(route('home'));

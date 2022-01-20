@@ -15,13 +15,9 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-
-            $table->unsignedBigInteger('tenant_id')->nullable()->index();
-            $table->foreign('tenant_id')->references('id')->on('tenants');
-
-            $table->string('event_name');
-            $table->dateTime('event_date');
-            
+            $table->foreignId('tenant_id')->nullable()->constrained();
+            $table->string('name');
+            $table->dateTime('schedule');
             $table->timestamps();
         });
     }

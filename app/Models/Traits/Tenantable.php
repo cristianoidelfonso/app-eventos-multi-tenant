@@ -22,17 +22,9 @@ trait Tenantable
         //  Refactor 01
         if(checkTenantId()) {
             static::creating(function($model) {
-               $model->tenant_id = session()->get('tenant_id');
+               $model->tenant_id = session('tenant_id');
             });
         }
-
-
-        // Refactor 02
-        // if(checkTenantId()) {
-        //     static::creating(function($model) {
-        //        $model->tenant_id = session('tenant_id');
-        //     });
-        // }
     }
 
     public function tenant()

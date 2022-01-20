@@ -16,14 +16,8 @@ class TenantScope implements Scope
         // }
 
         // Refactor 01
-        // if(checkTenantId()) {
-            // $builder->where('tenant_id', session()->get('tenant_id'));
-        // }
-
-        // Refactor 2
         if(checkTenantId()) {
             $builder->where('tenant_id', session('tenant_id'));
         }
     }
-
 }

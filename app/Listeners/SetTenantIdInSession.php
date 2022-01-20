@@ -25,6 +25,10 @@ class SetTenantIdInSession
      */
     public function handle($event)
     {
-        session()->put('tenant_id', $event->user->tenant_id);
+        // Código inicial
+        // session()->put('tenant_id', $event->user->tenant_id);
+
+        // Refactor 01
+        session(['tenant_id' => $event->user->tenant_id]);
     }
 }
