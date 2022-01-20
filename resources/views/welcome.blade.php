@@ -6,6 +6,7 @@
             @if (Route::has('login'))
                 <div class="space-x-4">
                     @auth
+                        <span>{{ auth()->user()->name ?? "Admin" }}</span>
                         <span>{{ auth()->user()->tenant_id ?? "Admin" }}</span>
                         <a
                             href="{{ route('logout') }}"
